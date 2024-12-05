@@ -1,0 +1,12 @@
+<div class="grid">
+  <div *ngFor="let row of board; let y = index" class="row">
+    <div *ngFor="let cell of row; let x = index"
+         class="cell"
+         (click)="handleCellClick(x, y)"
+         [ngClass]="{'occupied': cell !== ''}">
+      {{ cell }}
+    </div>
+  </div>
+  <p>{{ message || 'Current Player: ' + currentPlayer }}</p>
+  <button (click)="resetGame()">Reset Game</button>
+</div>
